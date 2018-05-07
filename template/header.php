@@ -10,6 +10,11 @@
 	<meta name="description" content="Resto HTML5/CSS3 Restaurant Home Page website Template"/>
 
 	<link rel="stylesheet" type="text/css" href="../style.css">
+        
+        <script type="text/javascript" src="../js/jquery.js"></script>
+        <script type="text/javascript" src="../js/carouFredSel.js"></script>
+        <script type="text/javascript" src="../js/easing.js"></script>
+        <script type="text/javascript" src="../js/main.js"></script>
 
 
 
