@@ -58,7 +58,20 @@
     font-style: normal;
 
 }
+/* Formulaire */
+form{
+    display: block;
+    margin: auto;
+    width: 400px;
 
+}
+
+form>input{
+    width: 80%;
+    height: 1.9em;
+    margin: auto;
+        
+}
 
 
 /*  General CSS*/

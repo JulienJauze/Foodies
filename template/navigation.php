@@ -1,5 +1,5 @@
 <?php $dir = scandir("/var/www/html/serveurweb/php-decouverte.bwb/content"); 
-
+session_start();
 ?>
 
 	<header>
@@ -23,7 +23,11 @@
                echo '<li><a href="http://php-decouverte.bwb/?content=' . implode('.',explode(".",$files,-1)) . '">' . ucfirst(implode('.',explode(".",$files,-1))) . '</a></li>';
            }
        }
-   }
+   };
+if (isset($_SESSION["username"])) {
+        echo '<li><a href="./scripts/disconnect.php"><button><small>Deconnexion</small></button></a></li>';
+
+}
 ?>
 
 
