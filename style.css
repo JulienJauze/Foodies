@@ -58,6 +58,12 @@
     font-style: normal;
 
 }
+
+/*Livre d'or*/
+.goldenbook{
+    background-color: #cccccc;
+    text-align: center;
+}
 /* Formulaire */
 form{
     display: block;
