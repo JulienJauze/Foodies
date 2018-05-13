@@ -64,6 +64,9 @@
     background-color: #cccccc;
     text-align: center;
 }
+.title{
+    text-align: center;
+}
 /* Formulaire */
 form{
     display: block;

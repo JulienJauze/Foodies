@@ -1,6 +1,6 @@
 <?php
 ?>
-<h1>Le Livre d'OR</h1>
+<h1 class="title">Le Livre d'OR</h1>
  
 
 <form method="POST"action="./scripts/commentary.php">
