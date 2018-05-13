@@ -1,9 +1,10 @@
 <?php
+include '../scripts/fonctions.php';
 ?>
 <h1 class="title">Le Livre d'OR</h1>
  
 
-<form method="POST"action="./scripts/commentary.php">
+<form method="POST"action="../scripts/commentary.php">
 <div>
 <fieldset> <legend>Votre Nom</legend>
 <input type="text" name="username" />
@@ -16,23 +17,5 @@
 </form>
 
     <?php
-
-$messages = "/var/www/html/serveurweb/php-decouverte.bwb/datas/message.json";
-
-$listeMessage = file_get_contents($messages);
-$listeMessageTableau = json_decode($listeMessage, TRUE);
-//if ($listeMessageTableau !== NULL){
-    foreach($listeMessageTableau as $message){
-        echo '<div class="goldenbook">
-   <div class="msg">
-   <h4>Message n°'.$message['id'].'</h4>
-   <p>'.$message['message'].'</p>
-   </div>
-   <div class="msgfooter">
-   <h6>Publié par '.$message['pseudo'].', le '.$message['date'].'</h6>
-   </div>
-</div>';
-    }
-//}
-
+getMessage()  
 ?>

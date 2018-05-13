@@ -1,5 +1,6 @@
-<?php $dir = scandir("/var/www/html/serveurweb/php-decouverte.bwb/content"); 
+<?php
 session_start();
+include ('../scripts/fonctions.php');
 ?>
 
 	<header>
@@ -12,22 +13,7 @@ session_start();
 				<ul>
 <?php
    
-   foreach ($dir as $files){
-       if ($files!== "." && $files!==".."){
-           if(strpos($files,"_") !== FALSE){
-               $modif = ucfirst(str_replace('_', ' ', implode('.',explode(".",substr_replace($files, "'", strrpos($files,"_",-1), 0),-1))));
-               $done = ucfirst(implode('.',explode(".",str_replace ( "_", "", substr_replace(substr_replace($files, "'", strrpos($files,"_",-1), 0), " ", strrpos($files,"_",-9), 0)),-1)));
-               ?>
-               <?php  echo '<li><a href="http://php-decouverte.bwb/?content='.implode('.',explode(".",$files,-1)).'">'.$done.'</a></li>';
-           }else{
-               echo '<li><a href="http://php-decouverte.bwb/?content=' . implode('.',explode(".",$files,-1)) . '">' . ucfirst(implode('.',explode(".",$files,-1))) . '</a></li>';
-           }
-       }
-   };
-if (isset($_SESSION["username"])) {
-        echo '<li><a href="./scripts/disconnect.php"><button><small>Deconnexion</small></button></a></li>';
-
-}
+  getNavbar();
 ?>
 
 
