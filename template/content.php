@@ -9,11 +9,14 @@ if($_GET['content'] === "cartes"){
     include('./content/livre_d_or.php');
 }elseif($_GET['content'] === "accueil"){
     include('./content/accueil.php');
+}elseif($_GET['content'] === "inscription"){
+    include('./content/inscription.php');
 }
+
 ?>
 
 <!--if(!isset($_GET['content'])){
-	include ('./contents/accueil.php');;
+	include ('./contents/accueil.php');
 }else{
 	include('./contents/'.$_GET['content'].'.php');
 }-->
