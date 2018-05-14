@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 function getNavbar() {
     $dir = scandir("/var/www/html/serveurweb/php-decouverte.bwb/content");
     foreach ($dir as $files) {
@@ -15,7 +15,7 @@ function getNavbar() {
         }
     };
     if (isset($_SESSION["username"])) {
-        echo '<li><a href="./scripts/disconnect.php"><button><small>Deconnexion</small></button></a></li>';
+        echo '<li><p>Bonjour '.$_SESSION["username"].'</p><a href="./scripts/disconnect.php"><button><small>Deconnexion</small></button></a></li>';
     }
 }
 
@@ -36,4 +36,29 @@ function getMessage() {
 </div>';
         }
     }
+}
+
+function userExist($diablo){
+    
+$users = "/var/www/html/serveurweb/php-decouverte.bwb/datas/users.json";
+$listeUser = file_get_contents($users);
+$listeUserTableau = json_decode($listeUser,TRUE);
+    if ($listeUserTableau !== NULL){
+        foreach ($listeUserTableau as $user) {
+            if($user["identifiant"] === $diablo){
+                echo'<p>Identifiant déja utilisé</p>';
+                session_destroy();
+                return true;
+          
+            }else{
+ 
+                
+           
+            }
+            
+        }
+    }
+
+
+
 }

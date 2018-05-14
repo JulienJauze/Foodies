@@ -1,4 +1,6 @@
 <?php
+include '../scripts/fonctions.php';
+
 ?>
 <div class="container text-center"> 
 <div class="row">
@@ -26,6 +28,7 @@
             <br>
             Identifiant:<br>
             <input type="text" name="identifiant" value="">
+            <?php userExist($_SESSION["test"]);?>
             <br>
             Email:<br>
             <input type="text" name="email" value="">

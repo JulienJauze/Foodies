@@ -6,9 +6,6 @@ include '../scripts/fonctions.php';
 
 <form method="POST"action="../scripts/commentary.php">
 <div>
-<fieldset> <legend>Votre Nom</legend>
-<input type="text" name="username" />
-</fieldset>
 <fieldset><legend>Postez un message pour le livre d'or</legend>
 <textarea cols="66" rows="6" name="message" value="message"></textarea>
 </fieldset>
