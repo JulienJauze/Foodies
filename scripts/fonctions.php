@@ -50,15 +50,26 @@ $listeUserTableau = json_decode($listeUser,TRUE);
                 session_destroy();
                 return true;
           
-            }else{
- 
-                
-           
-            }
-            
+            }           
         }
     }
 
+}
 
+function userConnexionExist($diablito){
+    
+$users = "/var/www/html/serveurweb/php-decouverte.bwb/datas/users.json";
+$listeUser = file_get_contents($users);
+$listeUserTableau = json_decode($listeUser,TRUE);
+    if ($listeUserTableau !== NULL){
+        foreach ($listeUserTableau as $user) {
+            if($user["identifiant"] === $diablito){
+               echo'identifiant incorrect<br>';
+               session_destroy();
+                return true;
+          
+            }      
+        }
+    }
 
 }

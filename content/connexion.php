@@ -1,6 +1,6 @@
 <?php
 include '../scripts/fonctions.php';
-
+session_start();
 ?>
 <div class="container text-center"> 
 <div class="row">
@@ -10,6 +10,7 @@ include '../scripts/fonctions.php';
             Identifiant:<br>
             <input type="text" name="username" value="">
             <br>
+          <?php userConnexionExist($_SESSION["username"])?>
             Mot de Passe:<br>
             <input type="password" name="password" value="">
             <br><br>
