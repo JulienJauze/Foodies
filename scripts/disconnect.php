@@ -1,6 +1,5 @@
 <?php
 
-session_start();
-session_destroy();
+ setcookie("pseudo", "", time()-3600, "/");
 
      header('Location: http://php-decouverte.bwb/?content=connexion');

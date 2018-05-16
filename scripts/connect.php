@@ -27,4 +27,3 @@ if(userConnexionExist($test2)){
     $_SESSION["username"]= $test2;
     
 }
-header('Location: http://php-decouverte.bwb/?content=connexion');

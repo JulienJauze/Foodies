@@ -1,16 +1,19 @@
 <?php
 include '../scripts/fonctions.php';
+
 session_start();
 ?>
 <div class="container text-center"> 
 <div class="row">
     <div class="col-sm-6">
         <h1 class="title">Connexion</h1>
-<br><form method="POST"action="./scripts/connect.php">
+<br><form method="POST"action="./scripts/cookie.php">
             Identifiant:<br>
             <input type="text" name="username" value="">
             <br>
-          <?php userConnexionExist($_SESSION["username"])?>
+            <?php if($_SESSION["try"]=== false):?>
+            <p>identifiant incorrect</p>
+            <?php endif;?>
             Mot de Passe:<br>
             <input type="password" name="password" value="">
             <br><br>

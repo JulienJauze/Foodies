@@ -14,8 +14,8 @@ function getNavbar() {
             }
         }
     };
-    if (isset($_SESSION["username"])) {
-        echo '<li><p>Bonjour '.$_SESSION["username"].'</p><a href="./scripts/disconnect.php"><button><small>Deconnexion</small></button></a></li>';
+    if (isset($_COOKIE["pseudo"])) {
+        echo '<li><p>Bonjour '.$_COOKIE["pseudo"].'</p><a href="./scripts/disconnect.php"><button><small>Deconnexion</small></button></a></li>';
     }
 }
 
@@ -61,15 +61,58 @@ function userConnexionExist($diablito){
 $users = "/var/www/html/serveurweb/php-decouverte.bwb/datas/users.json";
 $listeUser = file_get_contents($users);
 $listeUserTableau = json_decode($listeUser,TRUE);
-    if ($listeUserTableau !== NULL){
+$flag = true;
+    if ($diablito !== NULL){
         foreach ($listeUserTableau as $user) {
             if($user["identifiant"] === $diablito){
-               echo'identifiant incorrect<br>';
-               session_destroy();
+                 session_destroy();
+                 session_start();
+                
+                 $_SESSION["username"]=$diablito;
                 return true;
           
-            }      
+            }else{
+                
+                         $_SESSION["try"]= false;
+            } 
         }
     }
+    
 
-}
+    return FALSE;
+    }
+
+
+    
+function userCookie($diablita){
+    
+$users = "/var/www/html/serveurweb/php-decouverte.bwb/datas/users.json";
+$listeUser = file_get_contents($users);
+$listeUserTableau = json_decode($listeUser,TRUE);
+$flag = true;
+    if ($diablita !== NULL){
+
+        foreach ($listeUserTableau as $user) {
+            echo $diablita;
+            if($user["identifiant"] === $diablita){
+                setcookie("pseudo", $diablita, time()+3600, "/");
+                header('Location: http://php-decouverte.bwb/?content=connexion');
+                $flag = true;
+                session_destroy();
+                session_start();
+                return true;
+    
+            }else{
+                $flag = false;
+            }
+        }
+    }
+    if($flag===false){
+        echo'merde';
+                $_SESSION["try"]= false;
+                 header('Location: http://php-decouverte.bwb/?content=connexion');
+    }
+    
+
+    return FALSE;
+    }

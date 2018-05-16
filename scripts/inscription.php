@@ -38,6 +38,7 @@ $_SESSION["username"] = $user["identifiant"];
 file_put_contents($users, $listeUser2);
 
 }
-
-
+echo '<hr>';
+var_dump ($_SESSION["test"]);
+var_dump ($user["identifiant"]);
 header('Location: http://php-decouverte.bwb/?content=connexion');
